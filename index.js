@@ -1,3 +1,3 @@
-import KaavianAlertModal from "./alert-Modal";
-
-export default KaavianAlertModal;
+const sample = () =>{
+    return 'Hello world'
+}
