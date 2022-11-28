@@ -1,0 +1,11 @@
+{
+  "name": "alert-modal-and-slideouts",
+  "version": "1.0.0",
+  "description": "creating Alert modal and slideout module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MhdSamsu",
+  "license": "ISC"
+}
