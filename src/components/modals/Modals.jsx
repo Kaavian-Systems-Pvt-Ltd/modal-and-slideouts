@@ -25,6 +25,7 @@ export const Modal = () =>{
                     </div>
                     <div className="modalButton">
                         <Button btnName='Ok' />
+                        <Button btnName='Cancel' />
                     </div>
                 </div>
             </div>
