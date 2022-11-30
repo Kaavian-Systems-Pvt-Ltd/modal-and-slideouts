@@ -6,5 +6,5 @@ import { Modal } from '../components/modals';
 const stories = storiesOf('Modal', module);
 
 stories.add('Simple Msg', () =>{
-    return(<Modal />);
+    return(<Modal visibility='visible' />);
 })
