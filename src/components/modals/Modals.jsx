@@ -49,4 +49,3 @@ export const Modal = ({visibility, size, mode, header, Body, positive, negative}
         </div>
     );
 }
- 
