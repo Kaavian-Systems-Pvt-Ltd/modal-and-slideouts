@@ -49,11 +49,3 @@ export const Modal = ({visibility, size, mode, header, Body, positive, negative}
         </div>
     );
 }
-
-// @param  visibility => ('hidden' || 'visible')
-//  * @param  {string} size => ('small' || 'medium' || 'large') - defines Modal size
-//  * @param  mode => ('simple' || 'alert')
-//  * @param  header => text
-//  * @param  Body => components 
-//  * @param  positive => Button - {label, action} two props  
-//  * @param  negative => Button - {label, action} two props  
