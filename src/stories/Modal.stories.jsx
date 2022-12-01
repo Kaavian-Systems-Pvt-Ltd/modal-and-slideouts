@@ -17,9 +17,9 @@ const ModalSkeleton = ({modalProbs,clickHandler,msg}) =>{
 
     return(
             <div className="container">
-                <button onClick={clickHandler}> clik to view modal</button>
-                <h2>{msg}</h2>
-                <Modal Content={Content}{...modalProbs}/>
+                    <button onClick={clickHandler}> clik to view modal</button>
+                    <h2>{msg}</h2>
+                    <Modal Body={Content}{...modalProbs}/>
             </div>
     );
 }
@@ -44,7 +44,11 @@ stories.add('Simple Msg', () =>{
         visibility:status,
         mode:'simple',
         size:'small',
-        positive
+        header:'Simple Msg',
+        positive:{
+            label    : 'Okey',
+            action : positive
+        }
     }
     return(
             <div className="container">
@@ -71,8 +75,15 @@ stories.add('Alert Msg', () =>{
         visibility:status,
         mode:'alert',
         size:'medium',
-        positive,
-        negative : () => setStatus('hidden')
+        header:'Alert Msg',
+        positive:{
+            label    : 'Okey',
+            action : positive
+        },
+        negative :{
+            label    : 'Cancle',
+            action : () => setStatus('hidden')
+        } 
     }
     return(
             <div className="container">
@@ -99,8 +110,15 @@ stories.add('small', () =>{
         visibility:status,
         mode:'alert',
         size:'small',
-        positive,
-        negative : () => setStatus('hidden')
+        header:'Small',
+        positive:{
+            label    : 'Okey',
+            action : positive
+        },
+        negative :{
+            label    : 'Cancle',
+            action : () => setStatus('hidden')
+        } 
     }
     return(
             <div className="container">
@@ -127,7 +145,11 @@ stories.add('medium', () =>{
         visibility:status,
         mode:'simple',
         size:'medium',
-        positive
+        header:'Medium',
+        positive:{
+            label    : 'Okey',
+            action : positive
+        }
     }
     return(
             <div className="container">
@@ -154,8 +176,15 @@ stories.add('Large', () =>{
         visibility:status,
         mode:'alert',
         size:'large',
-        positive,
-        negative : () => setStatus('hidden')
+        header:'Large',
+        positive:{
+            label    : 'Okey',
+            action : positive
+        },
+        negative :{
+            label    : 'Cancel',
+            action : () => setStatus('hidden')
+        } 
     }
     return(
             <div className="container">

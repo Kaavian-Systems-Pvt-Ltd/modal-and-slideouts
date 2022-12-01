@@ -1,20 +1,32 @@
 import React from "react";
 import './style.css'
 
-export const Modal = ({visibility,size,mode,Content, positive,negative}) =>{
-    return (
+/**
+ * 
+ * @param {object} visibility => ('hidden' || 'visible')
+ * @param  size => ('small' || 'medium' || 'large')
+ * @param  mode => ('simple' || 'alert')
+ * @param  header => text
+ * @param  Body => components 
+ * @param  positive => Button - {label, action} two props  
+ * @param  negative => Button - {label, action} two props  
+ * @returns Modal
+ */
+
+export const Modal = ({visibility, size, mode, header, Body, positive, negative}) =>{
+   return (
         <div className="overlay" style={{visibility}}>
             <div className={`modal--${size}`}>
                 <div className="modalHeader">
-                    <h2>Modal header</h2>
+                    <h2>{header}</h2>
                 </div>
                 <div className="modalBody">
                     <div className="modalContent">
-                      <Content /> 
+                      <Body /> 
                     </div>
                     <div className="modalButton">
-                        <button className="btn positive" onClick={positive}>Ok</button>
-                        {mode==='alert' ? <button className="btn negative" onClick={negative}>Cancle</button>: null}
+                        <button className="btn positive" onClick={positive?.action}>{positive?.label}</button>
+                        {mode==='alert' ? <button className="btn negative" onClick={negative?.action}>{negative?.label}</button>: null}
                     </div>
                 </div>
             </div>
