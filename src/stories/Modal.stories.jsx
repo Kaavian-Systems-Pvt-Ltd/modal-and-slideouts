@@ -35,7 +35,7 @@ stories.add('Simple Msg', () =>{
         setStatus('visible') 
     }
 
-    const positive = () =>{
+    const onPositive = () =>{
         setMsg('Operation Success');
         setStatus('hidden');
     }
@@ -45,9 +45,9 @@ stories.add('Simple Msg', () =>{
         mode:'simple',
         size:'small',
         header:'Simple Msg',
-        positive:{
+        onPositive:{
             label    : 'Okey',
-            action : positive
+            onClick : onPositive
         }
     }
     return(
@@ -66,7 +66,7 @@ stories.add('Alert Msg', () =>{
         setStatus('visible') 
     }
 
-    const positive = () =>{
+    const onPositive = () =>{
         setMsg('Operation Success');
         setStatus('hidden');
     }
@@ -76,13 +76,13 @@ stories.add('Alert Msg', () =>{
         mode:'alert',
         size:'medium',
         header:'Alert Msg',
-        positive:{
+        onPositive:{
             label    : 'Okey',
-            action : positive
+            onClick : onPositive
         },
-        negative :{
+        onNegative :{
             label    : 'Cancle',
-            action : () => setStatus('hidden')
+            onClick : () => setStatus('hidden')
         } 
     }
     return(
@@ -101,7 +101,7 @@ stories.add('small', () =>{
         setStatus('visible') 
     }
 
-    const positive = () =>{
+    const onPositive = () =>{
         setMsg('Operation Success');
         setStatus('hidden');
     }
@@ -111,13 +111,13 @@ stories.add('small', () =>{
         mode:'alert',
         size:'small',
         header:'Small',
-        positive:{
+        onPositive:{
             label    : 'Okey',
-            action : positive
+            onClick : onPositive
         },
-        negative :{
+        onNegative :{
             label    : 'Cancle',
-            action : () => setStatus('hidden')
+            onClick : () => setStatus('hidden')
         } 
     }
     return(
@@ -136,7 +136,7 @@ stories.add('medium', () =>{
         setStatus('visible') 
     }
 
-    const positive = () =>{
+    const onPositive = () =>{
         setMsg('Operation Success');
         setStatus('hidden');
     }
@@ -146,9 +146,9 @@ stories.add('medium', () =>{
         mode:'simple',
         size:'medium',
         header:'Medium',
-        positive:{
+        onPositive:{
             label    : 'Okey',
-            action : positive
+            onClick : onPositive
         }
     }
     return(
@@ -167,7 +167,7 @@ stories.add('Large', () =>{
         setStatus('visible') 
     }
 
-    const positive = () =>{
+    const onPositive = () =>{
         setMsg('Operation Success');
         setStatus('hidden');
     }
@@ -177,13 +177,13 @@ stories.add('Large', () =>{
         mode:'alert',
         size:'large',
         header:'Large',
-        positive:{
+        onPositive:{
             label    : 'Okey',
-            action : positive
+            onClick : onPositive
         },
-        negative :{
+        onNegative :{
             label    : 'Cancel',
-            action : () => setStatus('hidden')
+            onClick : () => setStatus('hidden')
         } 
     }
     return(

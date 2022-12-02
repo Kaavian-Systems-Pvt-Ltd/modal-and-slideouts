@@ -2,14 +2,14 @@ import React from "react";
 import './style.css'
 
 /**
- * @typedef {object} positive
+ * @typedef {object} onPositive
  * @property {string} label => button Label
- * @property {function} action => button action
+ * @property {function} onClick => button action
  */
 /**
- * @typedef {object} negative
+ * @typedef {object} onNegative
  * @property {string} label => button Label
- * @property {function} action => button action
+ * @property {function} onClick => button action
  */
 
 /**
@@ -19,8 +19,8 @@ import './style.css'
  * @property {string} mode => ('simple' || 'alert') - defines modal mode
  * @property {string} header => text - modal heading
  * @property {Component}  Body => components  - modal body content
- * @property {positive} positive => Button - { label, action } two props - modal sucessfull action  
- * @property {negative}  negative => Button - { label, action } two props  - modal revert action 
+ * @property {onPositive} onPositive => Button - { label, onClick } two props - modal sucessfull action  
+ * @property {onNegative}  onNegative => Button - { label, onClick } two props  - modal revert action 
  */
 
 /**
@@ -29,7 +29,7 @@ import './style.css'
  * @returns Modal
  */
 
-export const Modal = ({visibility, size, mode, header, Body, positive, negative}) =>{
+export const Modal = ({visibility, size, mode, header, Body, onPositive, onNegative}) =>{
    return (
         <div className="overlay" style={{visibility}}>
             <div className={`modal--${size}`}>
@@ -41,8 +41,8 @@ export const Modal = ({visibility, size, mode, header, Body, positive, negative}
                       <Body /> 
                     </div>
                     <div className="modalButton">
-                        <button className="btn positive" onClick={positive?.action}>{positive?.label}</button>
-                        {mode==='alert' ? <button className="btn negative" onClick={negative?.action}>{negative?.label}</button>: null}
+                        <button className="btn positive" onClick={onPositive?.onClick}>{onPositive?.label}</button>
+                        {mode==='alert' ? <button className="btn negative" onClick={onNegative?.onClick}>{onNegative?.label}</button>: null}
                     </div>
                 </div>
             </div>
