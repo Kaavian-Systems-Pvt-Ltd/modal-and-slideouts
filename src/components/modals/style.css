@@ -6,22 +6,57 @@
     right: 0;
     background: rgba(0, 0, 0, 0.7);
 }
-.modal--small{
+
+.modal{
     background-color: white;
-    margin: 15% 25% 25%;
+    border-radius: 20px;
     padding: 2% 2%;
-    border-radius: 5px;
 }
-.modal--medium{
+.modal--info{
+    margin: 17% 31% ;
+}
+.modal--alert{
+    margin: 17% 31% ;
+    width: 35%;
+    height: 25%;
+}
+.modal--alert--security{
+    margin: 10% 35% 10%;
+    width: 25%;
+    height: 50%;
+}
+
+.alert--success{
+    color   : #0e8692;
+    margin: auto 45% ;
+};
+.alert--error{
+    color   : #FF0000;
+    margin: auto 45% ;
+}
+.alert--warn{
+    color   : #FFB800;
+    margin: auto 45% ;
+}
+
+.alert--security img{
+    width: 10%;
+    height: 5%;
+    margin: auto 45% ;
+}
+.modal--normal--small{
+    margin: 17% 31% ;
+    width: 35%;
+    height: 25%;
+}
+.modal--normal--medium{
     background-color: white;
     margin: 10% 20% 20%;
-    padding: 2% 2%;
     border-radius: 5px;
 }
-.modal--large{
+.modal--normal--large{
     background-color: white;
     margin: 5% 10% 10%;
-    padding: 2% 2%;
     border-radius: 5px;
 }
 
