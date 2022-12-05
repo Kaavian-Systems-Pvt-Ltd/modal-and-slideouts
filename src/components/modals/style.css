@@ -129,22 +129,127 @@
     color: white;
 }
 .alert--security--btn .negative{
+    position:fixed;
+    left: 36%;
+    top: 61.5%;
     margin-bottom: 5%;
     background-color: white;
     color:rgba(169, 214, 218, 1);
+}
+.modal--normal{
+    padding: 2% 2% 2% 2%;
+}
+.modal--normal .modalBody{
+    margin: 2% 0%;
+}
+.modal--normal .modalButton button{
+    border-radius: 10px;
+}
+.modal--normal .modalButton .positive{
+    background-color: #0e8692;
+    border: none;
+    color: white;
+}
+.modal--normal .modalButton .negative{
+    background-color: white;
+    border: solid rgba(169, 214, 218, 1);
+    color: rgba(169, 214, 218, 1);
 }
 .modal--normal--small{
     /* margin: 17% 31% ; */
     width: 30%;
     height: 25%;
 }
+.modal--normal--small .modalHeader h2{
+    margin: -2% 0% 0%;
+    font-size: 24px;
+    text-align: center;
+}
+.modal--normal--small .modalBody{
+    text-align: center;
+}
+.modal--normal--small .modalContent{
+    margin-top: -1.5%;
+}
+.modal--normal--small .modalButton button{
+    width: 15%;
+    padding: 0.4%;
+    font-size: 20px;
+    margin-top: -0.5%;
+}
+.modal--normal--small .modalButton .positive{
+    position: fixed;
+    left: 40%;
+    top: 50%;
+}
+.modal--normal--small .modalButton .negative{
+    position: fixed;
+    left: 40%;
+    top: 56%;
+}
 .modal--normal--medium{
-    /* margin: 17% 31% ; */
+    position: fixed;
+    left: 27.5%;
+    top: 25%;
     width: 40%;
     height: 35%;
 }
+.modal--normal .modalHeader h2{
+    margin: -1% 0% 0%;
+    padding: 0% 5%;
+}
+.modal--normal--medium .exit{
+    position: fixed;
+    left: 68.5%;
+    top : 26.5%;
+}
+
+.modal--normal--medium .modalBody .modalContent{
+    height: 23.5vh;
+    padding: 1% 5% 1%;
+    margin-top: -1%;
+}
+.modal--normal--medium .modalButton{
+   position: relative;
+   left: 34%;
+   margin-top: 3%;
+}
+.modal--normal--medium .modalButton button{
+    width: 30%;
+    height: 5vh;
+    font-size: 20px;
+}
+.modal--normal--medium .positive{
+    margin-right: 2.5%;
+}
 .modal--normal--large{
-    /* margin: 17% 31% ; */
+    position: fixed;
+    left: 23.5%;
+    top: 23%;
     width: 50%;
-    height: 45%;
+    height: 50%;
+}
+.modal--normal--large .exit{
+    position: fixed;
+    left: 74.5%;
+    top : 24.5%;
+}
+
+.modal--normal--large .modalBody .modalContent{
+    height: 38.5vh;
+    padding: 1% 5% 1%;
+    margin-top: -1%;
+}
+.modal--normal--large .modalButton{
+   position: relative;
+   left: 37.5%;
+   margin-top: 2%;
+}
+.modal--normal--large .modalButton button{
+    width: 30%;
+    height: 5vh;
+    font-size: 20px;
+}
+.modal--normal--large .positive{
+    margin-right: 2.5%;
 }

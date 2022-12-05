@@ -12,7 +12,7 @@ const ModalSkeleton = ({ modalProbs , clickHandler , msg })=>
     {
         return(
             <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
-                adipisicing elit. Nisi, possimus sapiente facilis
+                adipisicing elit. Nisi, possimus sapiente facilis 
             </p>
         );
     };
@@ -273,15 +273,32 @@ stories.add ('Normal medium' , ()=>
         setStatus ('hidden');
     };
 
+    const Content = ()=> 
+    {
+        return(
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum 
+            </p>
+        );
+    };
+
     const modalProbs = {
         'visibility' : status ,
         'mode' : 'normal' ,
         'size' : 'medium' ,
         'title' : 'Noraml Medium' ,
+        'Body' : Content ,
         'onPositive' : {
             'label' : 'Okey' ,
             'onClick' : onPositive
-        }
+        } ,
+        'onNegative' : {
+            'label' : 'Cancle' ,
+            'onClick' : ()=> setStatus ('hidden')
+        } 
     };
     return(
             <div className='container'>
@@ -307,11 +324,29 @@ stories.add ('Normal Large' , ()=>
         setStatus ('hidden');
     };
 
+    const Content = ()=> 
+    {
+        return(
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. 
+            </p>
+        );
+    };
+
     const modalProbs = {
         'visibility' : status ,
         'mode' : 'normal' ,
         'size' : 'large' ,
         'title' : 'Normal Large' ,
+        'Body' : Content ,
         'onPositive' : {
             'label' : 'Okey' ,
             'onClick' : onPositive
