@@ -7,21 +7,21 @@ const stories = storiesOf ('Modal' , module);
 
 const ModalSkeleton = ({ modalProbs , clickHandler , msg })=> 
 {
+    
     const Content = ()=> 
     {
         return(
-            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis 
-                illum temporibus laudantium. Quaerat recusandae delectus suscipit, 
-                asperiores molestias voluptatum corrupti modi velit. Maxime, assumenda! Nisi, officia dolore! 
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
+                adipisicing elit. Nisi, possimus sapiente facilis
             </p>
         );
     };
 
     return(
             <div className='container'>
-                    <button onClick={clickHandler}> clik to view modal</button>
+                    <button onClick={clickHandler}> clik to view modal {modalProbs.visibility}</button>
                     <h2>{msg}</h2>
-                    <Modal Body={Content}{...modalProbs}/>
+                    <Modal Body={Content} {...modalProbs}/>
             </div>
     );
 };
@@ -50,12 +50,20 @@ stories.add ('Info Modal' , ()=>
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
-
+    const Content = ()=> 
+    {
+        return(
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
+                adipisicing elit. Nisi, possimus sapiente facilis 
+            </p>
+        );
+    };
     const modalProbs = {
         'visibility' : status ,
         'mode' : 'info' ,
         'size' : 'small' ,
-        'title' : 'Simple Msg' ,
+        'title' : 'Information' ,
+        'Body' : Content ,
         'onPositive' : {
             'label' : 'Okey' ,
             'onClick' : onPositive
@@ -76,7 +84,8 @@ stories.add ('Alert Success' , ()=>
     const clickHandler = ()=> 
 {
         setMsg ('');
-        setStatus ('visible'); 
+        setStatus ('visible');
+        return; 
     };
 
     const onPositive = ()=> 
@@ -85,11 +94,21 @@ stories.add ('Alert Success' , ()=>
         setStatus ('hidden');
     };
 
+    const Content = ()=> 
+    {
+        return(
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
+                adipisicing elit. Nisi, possimus sapiente facilis 
+            </p>
+        );
+    };
+
     const modalProbs = {
         'visibility' : status ,
         'mode' : 'alert--success' ,
+        'Body' : Content , 
         'onPositive' : {
-            'label' : 'Okey' ,
+            'label' : 'OK' ,
             'onClick' : onPositive
         } 
     };
@@ -237,7 +256,7 @@ stories.add ('Normal small' , ()=>
     );
 });
 
-stories.add ('medium' , ()=> 
+stories.add ('Normal medium' , ()=> 
 {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
@@ -256,9 +275,9 @@ stories.add ('medium' , ()=>
 
     const modalProbs = {
         'visibility' : status ,
-        'mode' : 'simple' ,
+        'mode' : 'normal' ,
         'size' : 'medium' ,
-        'title' : 'Medium' ,
+        'title' : 'Noraml Medium' ,
         'onPositive' : {
             'label' : 'Okey' ,
             'onClick' : onPositive
@@ -271,7 +290,7 @@ stories.add ('medium' , ()=>
     );
 });
 
-stories.add ('Large' , ()=> 
+stories.add ('Normal Large' , ()=> 
 {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
@@ -290,9 +309,9 @@ stories.add ('Large' , ()=>
 
     const modalProbs = {
         'visibility' : status ,
-        'mode' : 'alert' ,
+        'mode' : 'normal' ,
         'size' : 'large' ,
-        'title' : 'Large' ,
+        'title' : 'Normal Large' ,
         'onPositive' : {
             'label' : 'Okey' ,
             'onClick' : onPositive

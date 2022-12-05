@@ -1,6 +1,8 @@
 import React from 'react';
-import './style.css';
 import PropTypes from 'prop-types';
+import { HighlightOff  } from '@mui/icons-material';
+
+import './style.css';
 import { ModalButton , ModalHeader } from './ModalComponets';
 
 /**
@@ -31,15 +33,25 @@ import { ModalButton , ModalHeader } from './ModalComponets';
  * @returns Modal
  */
 
-export const Modal = ({ visibility , size , mode , title , Body , onPositive , onNegative })=> 
+export const Modal = ({ visibility = 'hidden' , size , mode , title , Body , onPositive , onNegative })=> 
 {
+
+    const exitModal = ()=> 
+    {
+        document.getElementById ('modalView').style.visibility = 'hidden';
+        return;
+    };
+    
   // split prefix string of mode
   const style = mode.split ('-'); 
+
   // gives class name by mode
   const variant = style[0] === 'normal' ? `modal--${style[0]}--${size}` : `modal--${style[0]}`;
+
   return (
-      <div className='overlay' style={{ visibility }}>
+      <div id='modalView' className='overlay' style={{ 'visibility' : visibility  }}>
           <div className={[ variant , `modal--${mode}` , 'modal' ].join (' ')}>
+              <button  className='exit' onClick={exitModal}><HighlightOff /></button>  
               <ModalHeader title ={title} mode={mode} />
               <div className='modalBody'>
                   <div className='modalContent'>
