@@ -1,15 +1,13 @@
 import React , { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import PropTypes from 'prop-types';
-import { Modal } from '../components/modals';
+import { Modal } from '../../dist/index';
 
 const stories = storiesOf ('Modal' , module);
 
-const ModalSkeleton = ({ modalProbs , clickHandler , msg })=> 
-{
+const ModalSkeleton = ({ modalProbs , clickHandler , msg })=> {
     
-    const Content = ()=> 
-    {
+    const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
                 adipisicing elit. Nisi, possimus sapiente facilis 
@@ -34,24 +32,34 @@ ModalSkeleton.propTypes = {
 
 // Use Cases
 
-stories.add ('Info Modal' , ()=> 
-{
+stories.add ('default' , ()=> {
+    const [ status , setStatus ] = useState ('hidden');
+
+    const clickHandler = ()=> {
+        setStatus ('visible'); 
+    };
+    return (
+        <div className='container'>
+            <button onClick={clickHandler}> clik to view modal</button>
+            <Modal visibility={status}/>
+        </div>
+    );
+});
+
+stories.add ('Info Modal' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
 
-    const clickHandler = ()=> 
-    {
+    const clickHandler = ()=> {
         setMsg ('');
         setStatus ('visible'); 
     };
 
-    const onPositive = ()=> 
-    {
+    const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
-    const Content = ()=> 
-    {
+    const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
                 adipisicing elit. Nisi, possimus sapiente facilis 
@@ -76,26 +84,22 @@ stories.add ('Info Modal' , ()=>
     );
 });
 
-stories.add ('Alert Success' , ()=> 
-{
+stories.add ('Alert Success' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
 
-    const clickHandler = ()=> 
-{
+    const clickHandler = ()=> {
         setMsg ('');
         setStatus ('visible');
         return; 
     };
 
-    const onPositive = ()=> 
-{
+    const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
 
-    const Content = ()=> 
-    {
+    const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
                 adipisicing elit. Nisi, possimus sapiente facilis 
@@ -119,19 +123,16 @@ stories.add ('Alert Success' , ()=>
     );
 });
 
-stories.add ('Alert Error' , ()=> 
-{
+stories.add ('Alert Error' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
 
-    const clickHandler = ()=> 
-{
+    const clickHandler = ()=> {
         setMsg ('');
         setStatus ('visible'); 
     };
 
-    const onPositive = ()=> 
-{
+    const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
@@ -150,19 +151,16 @@ stories.add ('Alert Error' , ()=>
             </div>
     );
 });
-stories.add ('Alert Warning' , ()=> 
-{
+stories.add ('Alert Warning' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
 
-    const clickHandler = ()=> 
-{
+    const clickHandler = ()=> {
         setMsg ('');
         setStatus ('visible'); 
     };
 
-    const onPositive = ()=> 
-{
+    const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
@@ -181,19 +179,16 @@ stories.add ('Alert Warning' , ()=>
             </div>
     );
 });
-stories.add ('Alert Security' , ()=> 
-{
+stories.add ('Alert Security' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
 
-    const clickHandler = ()=> 
-{
+    const clickHandler = ()=> {
         setMsg ('');
         setStatus ('visible'); 
     };
 
-    const onPositive = ()=> 
-{
+    const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
@@ -218,19 +213,16 @@ stories.add ('Alert Security' , ()=>
     );
 });
 
-stories.add ('Normal small' , ()=> 
-{
+stories.add ('Normal small' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
 
-    const clickHandler = ()=> 
-{
+    const clickHandler = ()=> {
         setMsg ('');
         setStatus ('visible'); 
     };
 
-    const onPositive = ()=> 
-{
+    const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
@@ -256,25 +248,21 @@ stories.add ('Normal small' , ()=>
     );
 });
 
-stories.add ('Normal medium' , ()=> 
-{
+stories.add ('Normal medium' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
 
-    const clickHandler = ()=> 
-{
+    const clickHandler = ()=> {
         setMsg ('');
         setStatus ('visible'); 
     };
 
-    const onPositive = ()=> 
-{
+    const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
 
-    const Content = ()=> 
-    {
+    const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
@@ -307,25 +295,21 @@ stories.add ('Normal medium' , ()=>
     );
 });
 
-stories.add ('Normal Large' , ()=> 
-{
+stories.add ('Normal Large' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
 
-    const clickHandler = ()=> 
-{
+    const clickHandler = ()=> {
         setMsg ('');
         setStatus ('visible'); 
     };
 
-    const onPositive = ()=> 
-{
+    const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
 
-    const Content = ()=> 
-    {
+    const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
@@ -363,19 +347,16 @@ stories.add ('Normal Large' , ()=>
     );
 });
 
-stories.add ('Normal small single Button' , ()=> 
-{
+stories.add ('Normal small single Button' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
 
-    const clickHandler = ()=> 
-{
+    const clickHandler = ()=> {
         setMsg ('');
         setStatus ('visible'); 
     };
 
-    const onPositive = ()=> 
-{
+    const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
@@ -397,25 +378,21 @@ stories.add ('Normal small single Button' , ()=>
     );
 });
 
-stories.add ('Normal medium single Button' , ()=> 
-{
+stories.add ('Normal medium single Button' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
 
-    const clickHandler = ()=> 
-{
+    const clickHandler = ()=> {
         setMsg ('');
         setStatus ('visible'); 
     };
 
-    const onPositive = ()=> 
-{
+    const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
 
-    const Content = ()=> 
-    {
+    const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
@@ -444,25 +421,21 @@ stories.add ('Normal medium single Button' , ()=>
     );
 });
 
-stories.add ('Normal Large Single button ' , ()=> 
-{
+stories.add ('Normal Large Single button ' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
     const [ msg , setMsg ] = useState ('');
 
-    const clickHandler = ()=> 
-{
+    const clickHandler = ()=> {
         setMsg ('');
         setStatus ('visible'); 
     };
 
-    const onPositive = ()=> 
-{
+    const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
     };
 
-    const Content = ()=> 
-    {
+    const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
