@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React , { useEffect , useState } from 'react';
 import PropTypes from 'prop-types';
 import { HighlightOff  } from '@mui/icons-material';
 
@@ -6,66 +6,54 @@ import './style.css';
 import { ModalButton , ModalHeader } from './ModalComponets';
 
 /**
- * @typedef {object} onPositive
- * @property {string} label => button Label
- * @property {function} onClick => button action
- */
-/**
- * @typedef {object} onNegative
- * @property {string} label => button Label
- * @property {function} onClick => button action
- */
-
-/**
- * @typedef {object} modalProps
- * @property {string} visibility => ('hidden' || 'visible') - defines modal visibility
- * @property {string} size => ('small' || 'medium' || 'large') - defines Modal size
- * @property {string} mode => ('info' || 'normal' ||'alert--${subMode}' [submode => success,error,warn,security]) - defines modal mode
- * @property {string} header => text - modal heading
- * @property {Component}  Body => components  - modal body content
- * @property {onPositive} onPositive => Button - { label, onClick } two props - modal sucessfull action  
- * @property {onNegative}  onNegative => Button - { label, onClick } two props  - modal revert action 
- */
-
-/**
- * 
- * @param {modalProps} object
+ * Modal Component
+ * @param  {Object} props
+ * @param {string} props.visibility => ('hidden' || 'visible') - defines modal visibility
+ * @param {string} props.size => ('small' || 'medium' || 'large') - defines Modal size
+ * @param {string} props.mode => ('info' || 'normal' ||'alert--${subMode}' [submode => success,error,warn,security]) - defines modal mode
+ * @param {string} props.header => text - modal heading
+ * @param {Function} props.Body => components  - modal body content
+ * @param {object} props.onPositive => Button - { label, onClick } two props - modal sucessfull action 
+ * @param {string} props.onPositive.label => positive button's label 
+ * @param {function} props.onPositive.onClick => positive button's method  
+ * @param {object}  props.onNegative => Button - { label, onClick } two props  - modal revert action   
+ * @param {string} props.onNegative.label => Negative button's label 
+ * @param {function} props.onNegative.onClick => Negative button's method 
  * @returns Modal
  */
 
-export const Modal = ({ visibility = 'hidden', size , mode , title , Body , onPositive , onNegative = {} })=> 
-{
-    const [modalSwitch, setModalSwitch] = useState('hidden')
+export const Modal = (props)=> {
+    const [ modalSwitch , setModalSwitch ] = useState ('hidden');
 
-    useEffect(() =>{
-        setModalSwitch(visibility);
-    },[visibility])
+    useEffect (()=> {
+        setModalSwitch (props.visibility);
+    } , [ props.visibility ]);
 
-    const exitModal = ()=> 
-    {
-       setModalSwitch('hidden');
-        window.location.reload();
+    const exitModal = ()=> {
+       setModalSwitch ('hidden');
+        window.location.reload ();
         return;
     };
-
-    const isNegativeHasProps = Object.keys (onNegative).length !== 2 && mode === 'normal' ? 'modal--single-btn' : null; 
+    
+  // validate onNegative object and give class by that
+    const isNegativeHasProps = Object.keys (props.onNegative).length !== 2 && props.mode === 'normal' ? 'modal--single-btn' : null; 
 
   // split prefix string of mode
-    const style = mode.split ('-'); 
+    const style = props.mode.split ('-'); 
 
   // gives class name by mode
-    const variant = style[0] === 'normal' ? `modal--${style[0]}--${size}` : `modal--${style[0]}`;
+    const variant = style[0] === 'normal' ? `modal--${style[0]}--${props.size}` : `modal--${style[0]}`;
 
   return (
       <div id='modalView' className={[ 'overlay' , isNegativeHasProps ].join (' ')} style={{ 'visibility' : modalSwitch  }}>
-          <div className={[ variant , `modal--${mode}` , 'modal' ].join (' ')}>
+          <div className={[ variant , `modal--${props.mode}` , 'modal' ].join (' ')}>
               <button  className='exit' onClick={exitModal}><HighlightOff /></button>  
-              <ModalHeader title ={title} mode={mode} />
+              <ModalHeader title ={props.title} mode={props.mode} />
               <div className='modalBody'>
                   <div className='modalContent'>
-                    <Body /> 
+                    <props.Body /> 
                   </div>
-                  <ModalButton mode={mode} onPositive={onPositive} onNegative={onNegative} />
+                  <ModalButton mode={props.mode} onPositive={props.onPositive} onNegative={props.onNegative} />
               </div>
           </div>
       </div>
@@ -80,4 +68,19 @@ Modal.propTypes = {
     'Body' : PropTypes.func.isRequired ,
     'onPositive' : PropTypes.object.isRequired ,
     'onNegative' : PropTypes.object
+};
+
+Modal.defaultProps = {
+  'visibility' : 'hidden' ,
+  'size' : 'medium' ,
+  'mode' : 'normal' ,
+  'title' : 'No Title' ,
+  'Body' : ()=> {
+      return(<p>Nothing here</p>);
+  } ,
+  'onPositive' : {
+     'label' : 'OK' ,
+     'onclick' : undefined
+  } ,
+  'onNegative' : {}
 };

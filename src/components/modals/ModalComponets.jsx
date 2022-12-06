@@ -1,19 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CheckCircleOutline , ErrorOutline , WarningAmberRounded } from '@mui/icons-material'; 
-// import securityImg from '../img/Vectorsecurity.png';
-import {Icon} from '@iconify/react'
+import { Icon } from '@iconify/react';
 
 import './style.css';
 
-export const ModalHeader = ({ title , mode })=> 
-{
-    const SecurityAlert = ()=> 
-    {
+export const ModalHeader = ({ title , mode })=> {     
+    const SecurityAlertModeHeader = ()=> {
         return (
             <div className='alert--security'>
-                <Icon icon="ri:shield-keyhole-line" className='security-icon' />
-                {/* <img src={securityImg} alt='security' /> */}
+                <Icon icon='ri:shield-keyhole-line' className='security-icon' />
                 <h2>{title}</h2>
             </div>
         );
@@ -23,7 +19,7 @@ export const ModalHeader = ({ title , mode })=>
             {mode === 'alert--success' ? <CheckCircleOutline  className='alert--success' sx={{ 'fontSize' : 50 }}/> : null }
             {mode === 'alert--error' ? <ErrorOutline  className='alert--error' sx={{ 'fontSize' : 50 }}/> : null }
             {mode === 'alert--warn' ? <WarningAmberRounded  className='alert--warn' sx={{ 'fontSize' : 50 }} /> : null }
-            {mode === 'alert--security' ? <SecurityAlert /> : null }
+            {mode === 'alert--security' ? <SecurityAlertModeHeader /> : null }
             {mode === 'info' || mode === 'normal' ? <h2>{title}</h2> : null }
             
         </div>
@@ -35,8 +31,8 @@ ModalHeader.propTypes = {
     'mode' : PropTypes.string.isRequired
 };
 
-export const ModalButton =  ({ mode , onPositive , onNegative = {} })=> 
-{  
+export const ModalButton =  ({ mode , onPositive , onNegative })=> {  
+    // validate mode and give class by that
     const validateMode = [ 'normal' , 'alert--security' ].includes (mode , 0);
     const switchNegative = validateMode ? true : false; 
     return(
