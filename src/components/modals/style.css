@@ -104,9 +104,10 @@
     color: black;
     padding: 3%;
 }
-.alert--security img{
-    width: 12%;
-    margin: 0% 44% 0%;
+.alert--security .security-icon{
+    color: #0e8692;
+    font-size: 45px;
+    margin: 0% 42% 0%;
 }
 .alert--security h2{
     font-weight: 600;

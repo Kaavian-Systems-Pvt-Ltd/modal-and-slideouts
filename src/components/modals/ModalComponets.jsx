@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CheckCircleOutline , ErrorOutline , WarningAmberRounded } from '@mui/icons-material'; 
-import securityImg from '../img/Vectorsecurity.png';
+// import securityImg from '../img/Vectorsecurity.png';
+import {Icon} from '@iconify/react'
 
 import './style.css';
 
@@ -11,7 +12,8 @@ export const ModalHeader = ({ title , mode })=>
     {
         return (
             <div className='alert--security'>
-                <img src={securityImg} alt='security' />
+                <Icon icon="ri:shield-keyhole-line" className='security-icon' />
+                {/* <img src={securityImg} alt='security' /> */}
                 <h2>{title}</h2>
             </div>
         );
