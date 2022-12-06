@@ -155,10 +155,18 @@
     border: solid rgba(169, 214, 218, 1);
     color: rgba(169, 214, 218, 1);
 }
+
+.modal--single-btn .modal--normal .negative{
+    visibility: hidden; 
+}
+
 .modal--normal--small{
     /* margin: 17% 31% ; */
     width: 30%;
     height: 25%;
+}
+.modal--single-btn .modal--normal--small{
+    height: 20%;
 }
 .modal--normal--small .modalHeader h2{
     margin: -2% 0% 0%;
@@ -170,6 +178,7 @@
 }
 .modal--normal--small .modalContent{
     margin-top: -1.5%;
+    height: 8.5vh;
 }
 .modal--normal--small .modalButton button{
     width: 15%;
@@ -212,7 +221,11 @@
 .modal--normal--medium .modalButton{
    position: relative;
    left: 34%;
-   margin-top: 3%;
+   margin-top: 1%;
+}
+.modal--single-btn .modal--normal--medium .modalButton {
+    position: relative;
+    left: 35%;
 }
 .modal--normal--medium .modalButton button{
     width: 30%;
@@ -243,7 +256,11 @@
 .modal--normal--large .modalButton{
    position: relative;
    left: 37.5%;
-   margin-top: 2%;
+   margin-top: 1%;
+}
+.modal--single-btn .modal--normal--large .modalButton {
+    position: relative;
+    left: 35%;
 }
 .modal--normal--large .modalButton button{
     width: 30%;

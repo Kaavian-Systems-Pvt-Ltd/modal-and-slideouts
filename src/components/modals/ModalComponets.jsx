@@ -33,12 +33,12 @@ ModalHeader.propTypes = {
     'mode' : PropTypes.string.isRequired
 };
 
-export const ModalButton =  ({ mode , onPositive , onNegative })=> 
+export const ModalButton =  ({ mode , onPositive , onNegative = {} })=> 
 {  
     const validateMode = [ 'normal' , 'alert--security' ].includes (mode , 0);
     const switchNegative = validateMode ? true : false; 
     return(
-        <div className={[ 'modalButton' , `${mode}--btn` , `modal--${mode.split ('-')[0]}--btn` ].join (' ')}>
+        <div className={[ 'modalButton' , `${mode}--btn` , `modal--${mode.split ('-')[0]}--btn`  ].join (' ')}>
             { mode === 'info' ? null : <><button className='btn positive' onClick={onPositive?.onClick}>{onPositive?.label}</button>
                 { switchNegative ? <button className='btn negative' onClick={onNegative?.onClick}>{onNegative?.label}</button> : null}
                 </>

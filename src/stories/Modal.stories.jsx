@@ -362,3 +362,136 @@ stories.add ('Normal Large' , ()=>
             </div>
     );
 });
+
+stories.add ('Normal small single Button' , ()=> 
+{
+    const [ status , setStatus ] = useState ('hidden');
+    const [ msg , setMsg ] = useState ('');
+
+    const clickHandler = ()=> 
+{
+        setMsg ('');
+        setStatus ('visible'); 
+    };
+
+    const onPositive = ()=> 
+{
+        setMsg ('Operation Success');
+        setStatus ('hidden');
+    };
+
+    const modalProbs = {
+        'visibility' : status ,
+        'mode' : 'normal' ,
+        'size' : 'small' ,
+        'title' : 'Normal Small' ,
+        'onPositive' : {
+            'label' : 'Okey' ,
+            'onClick' : onPositive
+        } 
+    };
+    return(
+            <div className='container'>
+                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+            </div>
+    );
+});
+
+stories.add ('Normal medium single Button' , ()=> 
+{
+    const [ status , setStatus ] = useState ('hidden');
+    const [ msg , setMsg ] = useState ('');
+
+    const clickHandler = ()=> 
+{
+        setMsg ('');
+        setStatus ('visible'); 
+    };
+
+    const onPositive = ()=> 
+{
+        setMsg ('Operation Success');
+        setStatus ('hidden');
+    };
+
+    const Content = ()=> 
+    {
+        return(
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum 
+            </p>
+        );
+    };
+
+    const modalProbs = {
+        'visibility' : status ,
+        'mode' : 'normal' ,
+        'size' : 'medium' ,
+        'title' : 'Noraml Medium' ,
+        'Body' : Content ,
+        'onPositive' : {
+            'label' : 'Okey' ,
+            'onClick' : onPositive
+        } 
+    };
+    return(
+            <div className='container'>
+                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+            </div>
+    );
+});
+
+stories.add ('Normal Large Single button ' , ()=> 
+{
+    const [ status , setStatus ] = useState ('hidden');
+    const [ msg , setMsg ] = useState ('');
+
+    const clickHandler = ()=> 
+{
+        setMsg ('');
+        setStatus ('visible'); 
+    };
+
+    const onPositive = ()=> 
+{
+        setMsg ('Operation Success');
+        setStatus ('hidden');
+    };
+
+    const Content = ()=> 
+    {
+        return(
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua. 
+            </p>
+        );
+    };
+
+    const modalProbs = {
+        'visibility' : status ,
+        'mode' : 'normal' ,
+        'size' : 'large' ,
+        'title' : 'Normal Large' ,
+        'Body' : Content ,
+        'onPositive' : {
+            'label' : 'Okey' ,
+            'onClick' : onPositive
+        }
+    };
+    return(
+            <div className='container'>
+                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+            </div>
+    );
+});

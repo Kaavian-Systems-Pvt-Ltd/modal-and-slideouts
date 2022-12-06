@@ -33,7 +33,7 @@ import { ModalButton , ModalHeader } from './ModalComponets';
  * @returns Modal
  */
 
-export const Modal = ({ visibility = 'hidden' , size , mode , title , Body , onPositive , onNegative })=> 
+export const Modal = ({ visibility = 'hidden' , size , mode , title , Body , onPositive , onNegative = {} })=> 
 {
 
     const exitModal = ()=> 
@@ -41,7 +41,8 @@ export const Modal = ({ visibility = 'hidden' , size , mode , title , Body , onP
         document.getElementById ('modalView').style.visibility = 'hidden';
         return;
     };
-    
+    const isNegativeHasProps = Object.keys (onNegative).length !== 2 && mode === 'normal' ? 'modal--single-btn' : null; 
+
   // split prefix string of mode
   const style = mode.split ('-'); 
 
@@ -49,7 +50,7 @@ export const Modal = ({ visibility = 'hidden' , size , mode , title , Body , onP
   const variant = style[0] === 'normal' ? `modal--${style[0]}--${size}` : `modal--${style[0]}`;
 
   return (
-      <div id='modalView' className='overlay' style={{ 'visibility' : visibility  }}>
+      <div id='modalView' className={[ 'overlay' , isNegativeHasProps ].join (' ')} style={{ 'visibility' : visibility  }}>
           <div className={[ variant , `modal--${mode}` , 'modal' ].join (' ')}>
               <button  className='exit' onClick={exitModal}><HighlightOff /></button>  
               <ModalHeader title ={title} mode={mode} />
