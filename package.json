@@ -7,13 +7,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "chromatic": "npx chromatic --project-token=ae75d964640c"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kaavian-Systems-Pvt-Ltd/Kaavian-sys-Alert-modal-and-slideouts.git"
   },
-  "author": "Mohammed Samsuthin",
+  "author": {
+    "name": "Mohammed Samsuthin"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Kaavian-Systems-Pvt-Ltd/Kaavian-sys-Alert-modal-and-slideouts/issues"
@@ -34,11 +37,12 @@
     "@storybook/addon-knobs": "^6.4.0",
     "@storybook/addon-links": "^6.5.13",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/builder-webpack4": "^6.5.13",
-    "@storybook/manager-webpack4": "^6.5.13",
+    "@storybook/builder-webpack5": "^6.5.14",
+    "@storybook/manager-webpack5": "^6.5.14",
     "@storybook/react": "^6.5.13",
     "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^8.3.0",
+    "chromatic": "^6.11.4",
     "clean-webpack-plugin": "^4.0.0",
     "eslint": "^8.28.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -65,5 +69,7 @@
     "@mui/material": "^5.10.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "@kaavain-sys/modal-and-slideouts@1.0.0"
 }
