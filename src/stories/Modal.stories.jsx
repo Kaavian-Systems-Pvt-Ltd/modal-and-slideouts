@@ -73,7 +73,7 @@ stories.add ('Info Modal' , ()=> {
         'title' : 'Information' ,
         'Body' : Content ,
         'onPositive' : {
-            'label' : 'Okey' ,
+            'label' : 'Okay' ,
             'onClick' : onPositive
         }
     };
@@ -141,7 +141,7 @@ stories.add ('Alert Error' , ()=> {
         'visibility' : status ,
         'mode' : 'alert--error' ,
         'onPositive' : {
-            'label' : 'Okey' ,
+            'label' : 'Okay' ,
             'onClick' : onPositive
         }
     };
@@ -169,7 +169,7 @@ stories.add ('Alert Warning' , ()=> {
         'visibility' : status ,
         'mode' : 'alert--warn' ,
         'onPositive' : {
-            'label' : 'Okey' ,
+            'label' : 'Okay' ,
             'onClick' : onPositive
         }
     };
@@ -198,7 +198,7 @@ stories.add ('Alert Security' , ()=> {
         'mode' : 'alert--security' ,
         'title' : 'Alert Security' ,
         'onPositive' : {
-            'label' : 'Okey' ,
+            'label' : 'Okay' ,
             'onClick' : onPositive
         } ,
         'onNegative' : {
@@ -280,7 +280,7 @@ stories.add ('Normal medium' , ()=> {
         'title' : 'Noraml Medium' ,
         'Body' : Content ,
         'onPositive' : {
-            'label' : 'Okey' ,
+            'label' : 'Okay' ,
             'onClick' : onPositive
         } ,
         'onNegative' : {
@@ -332,7 +332,7 @@ stories.add ('Normal Large' , ()=> {
         'title' : 'Normal Large' ,
         'Body' : Content ,
         'onPositive' : {
-            'label' : 'Okey' ,
+            'label' : 'Okay' ,
             'onClick' : onPositive
         } ,
         'onNegative' : {
@@ -367,7 +367,7 @@ stories.add ('Normal small single Button' , ()=> {
         'size' : 'small' ,
         'title' : 'Normal Small' ,
         'onPositive' : {
-            'label' : 'Okey' ,
+            'label' : 'Okay' ,
             'onClick' : onPositive
         } 
     };
@@ -410,7 +410,7 @@ stories.add ('Normal medium single Button' , ()=> {
         'title' : 'Noraml Medium' ,
         'Body' : Content ,
         'onPositive' : {
-            'label' : 'Okey' ,
+            'label' : 'Okay' ,
             'onClick' : onPositive
         } 
     };
@@ -458,7 +458,7 @@ stories.add ('Normal Large Single button ' , ()=> {
         'title' : 'Normal Large' ,
         'Body' : Content ,
         'onPositive' : {
-            'label' : 'Okey' ,
+            'label' : 'Okay' ,
             'onClick' : onPositive
         }
     };
