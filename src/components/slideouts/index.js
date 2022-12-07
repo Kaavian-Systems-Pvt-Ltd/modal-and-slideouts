@@ -1,1 +1,1 @@
-export * from './slideouts';
+export * from './Slideouts';

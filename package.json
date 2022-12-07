@@ -1,5 +1,5 @@
 {
-  "name": "@kaavain-sys/modal-and-slideouts",
+  "name": "@kaavian-sys/modal-and-slideouts",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
@@ -12,16 +12,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kaavian-Systems-Pvt-Ltd/Kaavian-sys-Alert-modal-and-slideouts.git"
+    "url": "https://github.com/Kaavian-Systems-Pvt-Ltd/modal-and-slideouts.git"
   },
   "author": {
     "name": "Mohammed Samsuthin"
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kaavian-Systems-Pvt-Ltd/Kaavian-sys-Alert-modal-and-slideouts/issues"
+    "url": "https://github.com/Kaavian-Systems-Pvt-Ltd/modal-and-slideouts/issues"
   },
-  "homepage": "https://github.com/Kaavian-Systems-Pvt-Ltd/Kaavian-sys-Alert-modal-and-slideouts#readme",
+  "homepage": "https://github.com/Kaavian-Systems-Pvt-Ltd/modal-and-slideouts#readme",
   "devDependencies": {
     "@babel/core": "^7.20.5",
     "@babel/preset-env": "^7.20.2",

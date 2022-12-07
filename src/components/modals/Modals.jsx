@@ -1,9 +1,9 @@
-import React , { useEffect , useState } from 'react';
+import React , { useState , useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { HighlightOff  } from '@mui/icons-material';
 
 import './style.css';
-import { ModalButton , ModalHeader } from './ModalComponets';
+import { ModalButton , ModalHeader } from './ModalUtils';
 
 /**
  * Modal Component
@@ -23,40 +23,32 @@ import { ModalButton , ModalHeader } from './ModalComponets';
  */
 
 export const Modal = (props)=> {
-    const [ modalSwitch , setModalSwitch ] = useState ('hidden');
+  const [ show , setShow ] = useState (props.visibility);
 
-    useEffect (()=> {
-        setModalSwitch (props.visibility);
-    } , [ props.visibility ]);
-
-    const exitModal = ()=> {
-       setModalSwitch ('hidden');
-        window.location.reload ();
-        return;
-    };
-    
+  useEffect (()=> {
+    setShow (props.visibility);
+  } , [ props.visibility ]);
+  
   // validate onNegative object and give class by that
-    const isNegativeHasProps = Object.keys (props.onNegative).length !== 2 && props.mode === 'normal' ? 'modal--single-btn' : null; 
-
+  const isNegativeHasProps = Object.keys (props.onNegative).length !== 2 && props.mode === 'normal' ? 'modal--single-btn' : null; 
   // split prefix string of mode
-    const style = props.mode.split ('-'); 
-
+  const style = props.mode.split ('-'); 
   // gives class name by mode
-    const variant = style[0] === 'normal' ? `modal--${style[0]}--${props.size}` : `modal--${style[0]}`;
+  const variant = style[0] === 'normal' ? `modal--${style[0]}--${props.size}` : `modal--${style[0]}`;
 
   return (
-      <div id='modalView' className={[ 'overlay' , isNegativeHasProps ].join (' ')} style={{ 'visibility' : modalSwitch  }}>
-          <div className={[ variant , `modal--${props.mode}` , 'modal' ].join (' ')}>
-              <button  className='exit' onClick={exitModal}><HighlightOff /></button>  
-              <ModalHeader title ={props.title} mode={props.mode} />
-              <div className='modalBody'>
-                  <div className='modalContent'>
-                    <props.Body /> 
-                  </div>
-                  <ModalButton mode={props.mode} onPositive={props.onPositive} onNegative={props.onNegative} />
-              </div>
-          </div>
-      </div>
+    <div id={`modal-${show}`} className={[ 'overlay' , isNegativeHasProps ].join (' ')} style={{ 'visibility' : show  }}>
+        <div className={[ variant , `modal--${props.mode}` , 'modal' ].join (' ')}>
+            <button  className='exit' onClick={()=> setShow ('hidden')}><HighlightOff /></button> 
+            <ModalHeader title ={props.title} mode={props.mode} />
+            <div className='modalBody'>
+                <div className='modalContent'>
+                  <props.Body /> 
+                </div>
+                <ModalButton mode={props.mode} onPositive={props.onPositive} onNegative={props.onNegative} />
+            </div>
+        </div>
+    </div>
   );
 };
 

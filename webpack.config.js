@@ -22,15 +22,6 @@ module.exports = {
         'test' : /\.(css|scss)$/ ,
         'use' : [ 'style-loader' , 'css-loader' , 'sass-loader' ] ,
         'include' : path.resolve (__dirname , './src')
-      } , {
-          'test' : /\.(png|jpe?g|gif|svg)$/i ,       
-          'use' : {
-            'loader' : 'file-loader' ,
-            'options' : {
-              'name' : '[name].[ext]' ,
-              'outputPath' : 'images'
-            }
-          }
       } ]
   }
 };
