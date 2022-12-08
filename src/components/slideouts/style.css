@@ -1,19 +1,8 @@
-@keyframes slide{
-   0%{
-    left: 100%;
-    right: 0%;
-   }
-   100%{
-    left: 70%;
-    right: 30%;
-   }
-}
 .slideouts{
     height: 100vh;
     background-color: white;
     font-family: 'Fira Sans';
     padding: 1% 2%;
-    animation: slide 0.5s ease 1s forwards;
 }
 .slideouts-exit{
     position: relative;
@@ -22,11 +11,14 @@
     border: none;
     background-color: transparent;
     color: rgba(84, 84, 84, 1);
+    cursor: pointer;
+}
+.slideouts-header{
+    position: relative;
+    left: 0%;
+    margin-top: -11.5%;
 }
 .slideouts-header h2{
-    position: relative;
-    right: 0.5%;
-    margin-top: -5%;
     font-size: 25px;
 }
 .slideouts-body{
@@ -35,17 +27,87 @@
     margin: 0% 12.5% 0% 0%;
 }
 
+@keyframes slide{
+    0%{
+     left: 100%;
+     right: 0%;
+    }
+    100%{
+     left: 70%;
+     right: 30%;
+    }
+ }
 .slideouts--small{
     position: fixed;
     right: 0%;
     top: 0%;
     left: 70%;
     width: 30% ;
+    animation: slide 0.5s ease 1s backwards;
 }
+
+@keyframes slideMedium{
+    0%{
+     left: 100%;
+     right: 0%;
+    }
+    100%{
+     left: 50%;
+     right: 50%;
+    }
+ }
 .slideouts--medium{
     position: fixed;
     right: 0%;
     top: 0%;
     left: 50%;
-    width: 40% ;
+    width: 50% ;
+    animation: slideMedium 1s ease 1s backwards;
+}
+
+.slideouts--medium .slideouts-exit{
+    position: relative;
+    left: 90%;
+    
+}
+.slideouts--medium .slideouts-header{
+    position: relative;
+    left: 1%;
+    margin-top: -6.5%;
+}
+.slideouts--medium .slideouts-body{
+    margin: 0% 8% 0% 1%;
+}
+
+@keyframes slideLarge{
+    0%{
+     left: 100%;
+     right: 0%;
+    }
+    100%{
+     left: 30%;
+     right: 70%;
+    }
+ }
+.slideouts--large{
+    position: fixed;
+    right: 0%;
+    top: 0%;
+    left: 30%;
+    width: 70% ;
+    animation: slideLarge 1s ease 1s backwards;
+}
+.slideouts--large .slideouts-exit{
+    position: relative;
+    left: 93%;    
+}
+.slideouts--large .slideouts-header{
+    position: relative;
+    left: 1%;
+    top: 8.5%;
+}
+.slideouts--large .slideouts-body{
+    position: relative;
+    top: 8.4%;
+    margin: 0% 6% 0% 1%;
 }
