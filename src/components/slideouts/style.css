@@ -1,3 +1,16 @@
+#slideout{
+    animation: animShow 1s backwards;
+}
+
+@keyframes animShow{
+    0%{
+      opacity: 0;
+    }
+    100%{
+     opacity: 1;
+    }
+ }
+
 .slideouts{
     height: 100vh;
     background-color: white;
@@ -26,7 +39,6 @@
     height: 87.5vh;
     margin: 0% 12.5% 0% 0%;
 }
-
 @keyframes slide{
     0%{
      left: 100%;
@@ -37,13 +49,18 @@
      right: 30%;
     }
  }
+ #wrapper:hover .slideouts--small{
+    transition: 1s;
+    right: 0;
+ }
+
 .slideouts--small{
     position: fixed;
     right: 0%;
     top: 0%;
     left: 70%;
     width: 30% ;
-    animation: slide 0.5s ease 1s backwards;
+    animation: slide 0.25s ease 2s backwards;
 }
 
 @keyframes slideMedium{

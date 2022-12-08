@@ -27,8 +27,8 @@ export const Slideouts = (props)=> {
     };
 
     return(
-        <div className='overlay' style={{ 'visibility' : show }}>
-            <div className={[ 'slideouts' , `slideouts--${props.size}` ].join (' ')}>
+        <div className='overlay' id='slideout'  style={{ 'visibility' : show }}>
+            <div className={[ 'slideouts' , `slideouts--${props.size}` , 'prevent-animation' ].join (' ')}>
                 <button className='slideouts-exit' onClick ={exitModal} ><CloseRounded /></button>
                 <div className='slideouts-header'>
                     <h2>{props.title}</h2>
