@@ -1,16 +1,6 @@
-#slideout{
-    animation: animShow 1s backwards;
+#outer-click{
+    height: 100vh;
 }
-
-@keyframes animShow{
-    0%{
-      opacity: 0;
-    }
-    100%{
-     opacity: 1;
-    }
- }
-
 .slideouts{
     height: 100vh;
     background-color: white;
@@ -19,7 +9,7 @@
 }
 .slideouts-exit{
     position: relative;
-    left: 82.5%;
+    left: 83%;
     top: -0.5em;
     border: none;
     background-color: transparent;
@@ -29,7 +19,7 @@
 .slideouts-header{
     position: relative;
     left: 0%;
-    margin-top: -11.5%;
+    margin: -11.5% 20% 0% 0%;
 }
 .slideouts-header h2{
     font-size: 25px;
@@ -39,6 +29,12 @@
     height: 87.5vh;
     margin: 0% 12.5% 0% 0%;
 }
+
+.slide-hide{
+    opacity: 0;
+    transition: opacity 0.25s ease 1s;
+}
+
 @keyframes slide{
     0%{
      left: 100%;
@@ -49,10 +45,6 @@
      right: 30%;
     }
  }
- #wrapper:hover .slideouts--small{
-    transition: 1s;
-    right: 0;
- }
 
 .slideouts--small{
     position: fixed;
@@ -62,6 +54,22 @@
     width: 30% ;
     animation: slide 0.25s ease 2s backwards;
 }
+
+.slide-in-small{
+    left: 100%;
+    animation: slideInSmall 0.25s ease 0.5s backwards;
+}
+
+@keyframes slideInSmall{
+    0%{
+        left: 70%;
+        right: 30%;
+    }
+    100%{
+        left: 100%;
+        right: 0%;
+    }
+}   
 
 @keyframes slideMedium{
     0%{
@@ -79,8 +87,24 @@
     top: 0%;
     left: 50%;
     width: 50% ;
-    animation: slideMedium 1s ease 1s backwards;
+    animation: slideMedium 0.25s ease 2s backwards;
 }
+
+.slide-in-medium{
+    left: 100%;
+    animation: slideInMedium 0.25s ease 0.5s backwards;
+}
+
+@keyframes slideInMedium{
+    0%{
+        left: 50%;
+        right: 50%;
+    }
+    100%{
+        left: 100%;
+        right: 0%;
+    }
+} 
 
 .slideouts--medium .slideouts-exit{
     position: relative;
@@ -112,8 +136,25 @@
     top: 0%;
     left: 30%;
     width: 70% ;
-    animation: slideLarge 1s ease 1s backwards;
+    animation: slideLarge 0.25s ease 2s backwards;
 }
+
+.slide-in-large{
+    left: 100%;
+    animation: slideInLarge 0.25s ease 0.5s backwards;
+}
+
+@keyframes slideInLarge{
+    0%{
+        left: 30%;
+        right: 70%;
+    }
+    100%{
+        left: 100%;
+        right: 0%;
+    }
+} 
+
 .slideouts--large .slideouts-exit{
     position: relative;
     left: 93%;    
@@ -128,3 +169,4 @@
     top: 8.4%;
     margin: 0% 6% 0% 1%;
 }
+

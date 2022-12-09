@@ -1,4 +1,4 @@
-import React , { useState , useEffect } from 'react';
+import React  from 'react';
 import PropTypes from 'prop-types';
 import { CloseRounded } from '@mui/icons-material';
 
@@ -14,22 +14,35 @@ import './style.css';
  * @returns slideout 
  */
 export const Slideouts = (props)=> {
-    const [ show , setShow ] = useState ('hidden');
+    // const [ show , setShow ] = useState ('hidden');
 
-    useEffect (()=> {
-        setShow (props.visibility);
-    } , [ props.visibility ]);
 
-    const exitModal = ()=> {
-       setShow ('hidden');
-       window.location.reload ();
+    const slideInMethod = ()=> {
+        let slideIn = document.getElementById ('slideout');
+        let slideHide = document.getElementById ('slideout-root');
+        let outerClick = document.getElementById ('outer-click');
+
+        if(slideIn.classList.contains (`slide-in-${props.size}`) 
+            && slideHide.classList.contains ('slide-hide')  ){
+
+            slideIn.classList.remove (`slide-in-${props.size}`);
+            slideHide.classList.remove ('slide-hide');
+            // outerClick.classList.remove ('outer-click-close');
+            return;
+
+        }
+        
+        slideIn.classList.add (`slide-in-${props.size}`);
+        slideHide.classList.add ('slide-hide');
+        outerClick.style.height = '0vh';
         return;
     };
 
     return(
-        <div className='overlay' id='slideout'  style={{ 'visibility' : show }}>
-            <div className={[ 'slideouts' , `slideouts--${props.size}` , 'prevent-animation' ].join (' ')}>
-                <button className='slideouts-exit' onClick ={exitModal} ><CloseRounded /></button>
+        <div className='overlay' id='slideout-root'  style={{ 'visibility' : props.visibility }}>
+            <div id='outer-click' onClick={slideInMethod}></div>
+            <div id='slideout' className={[ 'slideouts' , `slideouts--${props.size}` ].join (' ')}>
+                <button className='slideouts-exit' onClick ={slideInMethod} ><CloseRounded /></button>
                 <div className='slideouts-header'>
                     <h2>{props.title}</h2>
                 </div>
