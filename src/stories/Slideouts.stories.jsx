@@ -1,7 +1,7 @@
 import React , { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Slideouts } from '../components/index';
+import { Slideouts } from '../../dist/index';
 
 const stories = storiesOf ('Slideouts' , Slideouts);
 
@@ -42,6 +42,9 @@ stories.add ('Small width' , ()=> {
 
 stories.add ('Medium width' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
+    const exitSlideOut  = ()=> {
+        setStatus ('hidden');
+    };
     const Content = ()=> {
         return(
             <p>    
@@ -54,13 +57,16 @@ stories.add ('Medium width' , ()=> {
     return(
         <div className='container'>
             <button onClick ={()=> setStatus ('visible')} >Click to view slideouts</button>
-            <Slideouts visibility={status} title='Medium width' Body={Content} size='medium' />
+            <Slideouts visibility={status} title='Medium width' Body={Content} size='medium' closeSlideOut={exitSlideOut} />
         </div>
     );
 });
 
 stories.add ('Large width' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
+    const exitSlideOut  = ()=> {
+        setStatus ('hidden');
+    };
     const Content = ()=> {
         return(
             <p> 
@@ -74,7 +80,7 @@ stories.add ('Large width' , ()=> {
     return(
         <div className='container'>
             <button onClick ={()=> setStatus ('visible')} >Click to view slideouts</button>
-            <Slideouts visibility={status} title='Large width' Body={Content} size='large' />
+            <Slideouts visibility={status} closeSlideOut={exitSlideOut} title='Large width' Body={Content} size='large' />
         </div>
     );
 });

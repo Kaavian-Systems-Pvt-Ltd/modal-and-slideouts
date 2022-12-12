@@ -1,6 +1,8 @@
-#outer-click{
+.outer-click{
     height: 100vh;
+    cursor: pointer;
 }
+
 .slideouts{
     height: 100vh;
     background-color: white;
@@ -46,14 +48,19 @@
     }
  }
 
+.slide-out-small{
+    animation: slide 0.25s ease 2s backwards;
+}
+
 .slideouts--small{
     position: fixed;
     right: 0%;
     top: 0%;
     left: 70%;
     width: 30% ;
-    animation: slide 0.25s ease 2s backwards;
+    /* animation: slide 0.25s ease 2s backwards; */
 }
+
 
 .slide-in-small{
     left: 100%;
@@ -81,13 +88,16 @@
      right: 50%;
     }
  }
+ .slide-out-medium{
+    animation: slideMedium 0.25s ease 2s backwards;
+}
 .slideouts--medium{
     position: fixed;
     right: 0%;
     top: 0%;
     left: 50%;
     width: 50% ;
-    animation: slideMedium 0.25s ease 2s backwards;
+    /* animation: slideMedium 0.25s ease 2s backwards; */
 }
 
 .slide-in-medium{
@@ -130,13 +140,18 @@
      right: 70%;
     }
  }
+
+ .slide-out-large{
+    animation: slideLarge 0.25s ease 2s backwards;
+}
+
 .slideouts--large{
     position: fixed;
     right: 0%;
     top: 0%;
     left: 30%;
     width: 70% ;
-    animation: slideLarge 0.25s ease 2s backwards;
+    /* animation: slideLarge 0.25s ease 2s backwards; */
 }
 
 .slide-in-large{
