@@ -49,7 +49,7 @@
  }
 
 .slide-out-small{
-    animation: slide 0.25s ease 2s backwards;
+    animation: slide 0.25s ease 0.5s backwards;
 }
 
 .slideouts--small{
@@ -89,7 +89,7 @@
     }
  }
  .slide-out-medium{
-    animation: slideMedium 0.25s ease 2s backwards;
+    animation: slideMedium 0.25s ease 0.5s backwards;
 }
 .slideouts--medium{
     position: fixed;
@@ -142,7 +142,7 @@
  }
 
  .slide-out-large{
-    animation: slideLarge 0.25s ease 2s backwards;
+    animation: slideLarge 0.25s ease 0.5s backwards;
 }
 
 .slideouts--large{

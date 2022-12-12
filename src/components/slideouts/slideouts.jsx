@@ -7,8 +7,8 @@ import './style.css';
 /**
  * Slideouts component
  * @param {object} props
- * @param {string} props.visibility => ('hidden' || 'visible') - defines Slideouts visibility
- * @param {Function} props.closeSlideOut => method - makes action to close Slideouts
+ * @param {string} props.show => ('hidden' || 'visible') - defines Slideouts visibility
+ * @param {Function} props.close => method - makes action to close Slideouts
  * @param {string} props.title => text - Slideouts's Title
  * @param {Function} props.Body => JSX component - Slideouts's Body Content
  * @param {string} props.size => ( small || medium || large ) - Slideouts's width size
@@ -69,23 +69,23 @@ export const Slideouts = (props)=> {
     };
 
     useEffect (()=> {
-        if(props.visibility === 'visible'){
+        if(props.show === 'visible'){
             slideOutMethod ();
         } else{
            slideInMethod ();
         }
-    } , [ [ props.visibility ] ]);
+    } , [ [ props.show ] ]);
 
     // style={{ 'visibility' : show }}
 
     return(
-       <div>{props.visibility}
+       <div>
             {show 
             ? <div className='overlay' id='slideout-root' >
                 
-                <div id='outer-click' onClick={props.closeSlideOut}></div>
+                <div id='outer-click' onClick={props.close}></div>
                 <div id='slideout' className={[ 'slideouts' , `slideouts--${props.size}` ].join (' ')}>
-                    <button className='slideouts-exit' onClick ={props.closeSlideOut} ><CloseRounded /></button>
+                    <button className='slideouts-exit' onClick ={props.close} ><CloseRounded /></button>
                     <div className='slideouts-header'>
                         <h2>{props.title}</h2>
                     </div>
@@ -100,16 +100,16 @@ export const Slideouts = (props)=> {
 };
 
 Slideouts.propTypes = {
-    'visibility' : PropTypes.string.isRequired ,
-    'closeSlideOut' : PropTypes.func.isRequired ,
+    'show' : PropTypes.string.isRequired ,
+    'close' : PropTypes.func.isRequired ,
     'title' : PropTypes.string.isRequired ,
     'Body' : PropTypes.func.isRequired ,
     'size' : PropTypes.string.isRequired
 };
 
 Slideouts.defaultProps = {
-    'visiblity' : 'hidden' ,
-    'closeSlideOut' : undefined ,
+    'show' : 'hidden' ,
+    'close' : undefined ,
     'title' : 'Slideouts' ,
     'body' : ()=> {
         return(<p>Nothing here</p>);

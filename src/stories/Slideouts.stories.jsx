@@ -35,7 +35,7 @@ stories.add ('Small width' , ()=> {
     return(
         <div className='container'>
             <button onClick ={()=> setStatus ('visible')} style={{ 'cursor' : 'pointer' }} >Click to view slideouts</button>
-            <Slideouts visibility={status} closeSlideOut={exitSlideOut} title='Small width' Body={Content} />
+            <Slideouts show={status} close={exitSlideOut} title='Small width' Body={Content} />
         </div>
     );
 });
@@ -57,7 +57,7 @@ stories.add ('Medium width' , ()=> {
     return(
         <div className='container'>
             <button onClick ={()=> setStatus ('visible')} >Click to view slideouts</button>
-            <Slideouts visibility={status} title='Medium width' Body={Content} size='medium' closeSlideOut={exitSlideOut} />
+            <Slideouts show={status} title='Medium width' Body={Content} size='medium' close={exitSlideOut} />
         </div>
     );
 });
@@ -80,7 +80,7 @@ stories.add ('Large width' , ()=> {
     return(
         <div className='container'>
             <button onClick ={()=> setStatus ('visible')} >Click to view slideouts</button>
-            <Slideouts visibility={status} closeSlideOut={exitSlideOut} title='Large width' Body={Content} size='large' />
+            <Slideouts show={status} close={exitSlideOut} title='Large width' Body={Content} size='large' />
         </div>
     );
 });

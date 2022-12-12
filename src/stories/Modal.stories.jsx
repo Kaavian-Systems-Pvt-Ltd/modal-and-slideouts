@@ -17,7 +17,7 @@ const ModalSkeleton = ({ modalProbs , clickHandler , msg })=> {
 
     return(
             <div className='container'>
-                    <button onClick={clickHandler}> clik to view modal {modalProbs.visibility}</button>
+                    <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
                     <h2>{msg}</h2>
                     <Modal Body={Content} {...modalProbs}/>
             </div>
@@ -45,7 +45,7 @@ stories.add ('default' , ()=> {
     return (
         <div className='container'>
             <button onClick={clickHandler}> clik to view modal</button>
-            <Modal visibility={status} closeModal={exitModal}/>
+            <Modal show={status} mode='alert' close={exitModal}/>
         </div>
     );
 });
@@ -73,8 +73,8 @@ stories.add ('Info Modal' , ()=> {
         );
     };
     const modalProbs = {
-        'visibility' : status ,
-        'closeModal' : exitModal ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'info' ,
         'size' : 'small' ,
         'title' : 'Information' ,
@@ -119,8 +119,8 @@ stories.add ('Alert Success' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
-        'closeModal' : exitModal ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'alert--success' ,
         'Body' : Content , 
         'onPositive' : {
@@ -150,7 +150,7 @@ stories.add ('Alert Error' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
         'mode' : 'alert--error' ,
         'onPositive' : {
             'label' : 'Okay' ,
@@ -182,8 +182,8 @@ stories.add ('Alert Warning' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
-        'closeModal' : exitModal ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'alert--warn' ,
         'onPositive' : {
             'label' : 'Okay' ,
@@ -215,8 +215,8 @@ stories.add ('Alert Security' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
-        'closeModal' : exitModal ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'alert--security' ,
         'title' : 'Alert Security' ,
         'onPositive' : {
@@ -254,8 +254,8 @@ stories.add ('Normal small' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
-        'closeModal' : exitModal ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'small' ,
         'title' : 'Normal Small' ,
@@ -305,8 +305,8 @@ stories.add ('Normal medium' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
-        'closeModal' : exitModal ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'medium' ,
         'title' : 'Noraml Medium' ,
@@ -362,8 +362,8 @@ stories.add ('Normal Large' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
-        'closeModal' : exitModal ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'large' ,
         'title' : 'Normal Large' ,
@@ -403,8 +403,8 @@ stories.add ('Normal small single Button' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
-        'closeModal' : exitModal ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'small' ,
         'title' : 'Normal Small' ,
@@ -450,8 +450,8 @@ stories.add ('Normal medium single Button' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
-        'closeModal' : exitModal ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'medium' ,
         'title' : 'Noraml Medium' ,
@@ -503,8 +503,8 @@ stories.add ('Normal Large Single button ' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
-        'closeModal' : exitModal ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'large' ,
         'title' : 'Normal Large' ,
