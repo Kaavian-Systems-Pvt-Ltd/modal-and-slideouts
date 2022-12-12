@@ -1,7 +1,7 @@
 import React , { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import PropTypes from 'prop-types';
-import { Modal } from '../../dist/index';
+import { Modal } from '../components/index';
 
 const stories = storiesOf ('Modal' , module);
 
@@ -17,7 +17,7 @@ const ModalSkeleton = ({ modalProbs , clickHandler , msg })=> {
 
     return(
             <div className='container'>
-                    <button onClick={clickHandler}> clik to view modal {modalProbs.visibility}</button>
+                    <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
                     <h2>{msg}</h2>
                     <Modal Body={Content} {...modalProbs}/>
             </div>
@@ -38,10 +38,14 @@ stories.add ('default' , ()=> {
     const clickHandler = ()=> {
         setStatus ('visible'); 
     };
+    
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
     return (
         <div className='container'>
             <button onClick={clickHandler}> clik to view modal</button>
-            <Modal visibility={status}/>
+            <Modal show={status} mode='alert' close={exitModal}/>
         </div>
     );
 });
@@ -54,7 +58,9 @@ stories.add ('Info Modal' , ()=> {
         setMsg ('');
         setStatus ('visible'); 
     };
-
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
     const onPositive = ()=> {
         setMsg ('Operation Success');
         setStatus ('hidden');
@@ -67,7 +73,8 @@ stories.add ('Info Modal' , ()=> {
         );
     };
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'info' ,
         'size' : 'small' ,
         'title' : 'Information' ,
@@ -99,6 +106,10 @@ stories.add ('Alert Success' , ()=> {
         setStatus ('hidden');
     };
 
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
+
     const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
@@ -108,7 +119,8 @@ stories.add ('Alert Success' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'alert--success' ,
         'Body' : Content , 
         'onPositive' : {
@@ -138,7 +150,7 @@ stories.add ('Alert Error' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
         'mode' : 'alert--error' ,
         'onPositive' : {
             'label' : 'Okay' ,
@@ -165,8 +177,13 @@ stories.add ('Alert Warning' , ()=> {
         setStatus ('hidden');
     };
 
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
+
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'alert--warn' ,
         'onPositive' : {
             'label' : 'Okay' ,
@@ -193,8 +210,13 @@ stories.add ('Alert Security' , ()=> {
         setStatus ('hidden');
     };
 
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
+
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'alert--security' ,
         'title' : 'Alert Security' ,
         'onPositive' : {
@@ -227,8 +249,13 @@ stories.add ('Normal small' , ()=> {
         setStatus ('hidden');
     };
 
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
+
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'small' ,
         'title' : 'Normal Small' ,
@@ -262,6 +289,10 @@ stories.add ('Normal medium' , ()=> {
         setStatus ('hidden');
     };
 
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
+
     const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
@@ -274,7 +305,8 @@ stories.add ('Normal medium' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'medium' ,
         'title' : 'Noraml Medium' ,
@@ -309,6 +341,10 @@ stories.add ('Normal Large' , ()=> {
         setStatus ('hidden');
     };
 
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
+
     const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
@@ -326,7 +362,8 @@ stories.add ('Normal Large' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'large' ,
         'title' : 'Normal Large' ,
@@ -361,8 +398,13 @@ stories.add ('Normal small single Button' , ()=> {
         setStatus ('hidden');
     };
 
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
+
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'small' ,
         'title' : 'Normal Small' ,
@@ -392,6 +434,10 @@ stories.add ('Normal medium single Button' , ()=> {
         setStatus ('hidden');
     };
 
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
+
     const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
@@ -404,7 +450,8 @@ stories.add ('Normal medium single Button' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'medium' ,
         'title' : 'Noraml Medium' ,
@@ -435,6 +482,10 @@ stories.add ('Normal Large Single button ' , ()=> {
         setStatus ('hidden');
     };
 
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
+
     const Content = ()=> {
         return(
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
@@ -452,7 +503,8 @@ stories.add ('Normal Large Single button ' , ()=> {
     };
 
     const modalProbs = {
-        'visibility' : status ,
+        'show' : status ,
+        'close' : exitModal ,
         'mode' : 'normal' ,
         'size' : 'large' ,
         'title' : 'Normal Large' ,

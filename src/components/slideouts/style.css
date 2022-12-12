@@ -1,0 +1,187 @@
+.outer-click{
+    height: 100vh;
+    cursor: pointer;
+}
+
+.slideouts{
+    height: 100vh;
+    background-color: white;
+    font-family: 'Fira Sans';
+    padding: 1% 2%;
+}
+.slideouts-exit{
+    position: relative;
+    left: 83%;
+    top: -0.5em;
+    border: none;
+    background-color: transparent;
+    color: rgba(84, 84, 84, 1);
+    cursor: pointer;
+}
+.slideouts-header{
+    position: relative;
+    left: 0%;
+    margin: -11.5% 20% 0% 0%;
+}
+.slideouts-header h2{
+    font-size: 25px;
+}
+.slideouts-body{
+    position: relative;
+    height: 87.5vh;
+    margin: 0% 12.5% 0% 0%;
+}
+
+.slide-hide{
+    opacity: 0;
+    transition: opacity 0.25s ease 1s;
+}
+
+@keyframes slide{
+    0%{
+     left: 100%;
+     right: 0%;
+    }
+    100%{
+     left: 70%;
+     right: 30%;
+    }
+ }
+
+.slide-out-small{
+    animation: slide 0.25s ease 0.5s backwards;
+}
+
+.slideouts--small{
+    position: fixed;
+    right: 0%;
+    top: 0%;
+    left: 70%;
+    width: 30% ;
+    /* animation: slide 0.25s ease 2s backwards; */
+}
+
+
+.slide-in-small{
+    left: 100%;
+    animation: slideInSmall 0.25s ease 0.5s backwards;
+}
+
+@keyframes slideInSmall{
+    0%{
+        left: 70%;
+        right: 30%;
+    }
+    100%{
+        left: 100%;
+        right: 0%;
+    }
+}   
+
+@keyframes slideMedium{
+    0%{
+     left: 100%;
+     right: 0%;
+    }
+    100%{
+     left: 50%;
+     right: 50%;
+    }
+ }
+ .slide-out-medium{
+    animation: slideMedium 0.25s ease 0.5s backwards;
+}
+.slideouts--medium{
+    position: fixed;
+    right: 0%;
+    top: 0%;
+    left: 50%;
+    width: 50% ;
+    /* animation: slideMedium 0.25s ease 2s backwards; */
+}
+
+.slide-in-medium{
+    left: 100%;
+    animation: slideInMedium 0.25s ease 0.5s backwards;
+}
+
+@keyframes slideInMedium{
+    0%{
+        left: 50%;
+        right: 50%;
+    }
+    100%{
+        left: 100%;
+        right: 0%;
+    }
+} 
+
+.slideouts--medium .slideouts-exit{
+    position: relative;
+    left: 90%;
+    
+}
+.slideouts--medium .slideouts-header{
+    position: relative;
+    left: 1%;
+    margin-top: -6.5%;
+}
+.slideouts--medium .slideouts-body{
+    margin: 0% 8% 0% 1%;
+}
+
+@keyframes slideLarge{
+    0%{
+     left: 100%;
+     right: 0%;
+    }
+    100%{
+     left: 30%;
+     right: 70%;
+    }
+ }
+
+ .slide-out-large{
+    animation: slideLarge 0.25s ease 0.5s backwards;
+}
+
+.slideouts--large{
+    position: fixed;
+    right: 0%;
+    top: 0%;
+    left: 30%;
+    width: 70% ;
+    /* animation: slideLarge 0.25s ease 2s backwards; */
+}
+
+.slide-in-large{
+    left: 100%;
+    animation: slideInLarge 0.25s ease 0.5s backwards;
+}
+
+@keyframes slideInLarge{
+    0%{
+        left: 30%;
+        right: 70%;
+    }
+    100%{
+        left: 100%;
+        right: 0%;
+    }
+} 
+
+.slideouts--large .slideouts-exit{
+    position: relative;
+    left: 93%;    
+}
+.slideouts--large .slideouts-header{
+    position: relative;
+    left: 1%;
+    top: 8.5%;
+}
+.slideouts--large .slideouts-body{
+    position: relative;
+    top: 8.4%;
+    margin: 0% 6% 0% 1%;
+}
+

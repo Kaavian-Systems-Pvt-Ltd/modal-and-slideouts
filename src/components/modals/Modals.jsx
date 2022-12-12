@@ -1,14 +1,15 @@
-import React , { useEffect , useState } from 'react';
+import React , { useState , useEffect  } from 'react';
 import PropTypes from 'prop-types';
 import { HighlightOff  } from '@mui/icons-material';
 
 import './style.css';
-import { ModalButton , ModalHeader } from './ModalComponets';
+import { ModalButton , ModalHeader } from './ModalUtils';
 
 /**
  * Modal Component
  * @param  {Object} props
- * @param {string} props.visibility => ('hidden' || 'visible') - defines modal visibility
+ * @param {string} props.show => ('hidden' || 'visible') - defines modal visibility
+ * @param {Function} props.close => method - makes action to close modal
  * @param {string} props.size => ('small' || 'medium' || 'large') - defines Modal size
  * @param {string} props.mode => ('info' || 'normal' ||'alert--${subMode}' [submode => success,error,warn,security]) - defines modal mode
  * @param {string} props.header => text - modal heading
@@ -23,45 +24,44 @@ import { ModalButton , ModalHeader } from './ModalComponets';
  */
 
 export const Modal = (props)=> {
-    const [ modalSwitch , setModalSwitch ] = useState ('hidden');
+  const [ show , setShow ] = useState (false);
 
-    useEffect (()=> {
-        setModalSwitch (props.visibility);
-    } , [ props.visibility ]);
+  useEffect (()=> {
+    if(props.show === 'visible') setShow (true);
+    else setShow (false);
+  } , [ props.show ]);
 
-    const exitModal = ()=> {
-       setModalSwitch ('hidden');
-        window.location.reload ();
-        return;
-    };
-    
+  const validateMode = props.mode === 'alert' ? 'alert--success' : props.mode;
   // validate onNegative object and give class by that
-    const isNegativeHasProps = Object.keys (props.onNegative).length !== 2 && props.mode === 'normal' ? 'modal--single-btn' : null; 
-
+  const isNegativeHasProps = Object.keys (props.onNegative).length !== 2 && props.mode === 'normal' ? 'modal--single-btn' : null; 
   // split prefix string of mode
-    const style = props.mode.split ('-'); 
-
+  const style = props.mode.split ('-'); 
   // gives class name by mode
-    const variant = style[0] === 'normal' ? `modal--${style[0]}--${props.size}` : `modal--${style[0]}`;
+  const variant = style[0] === 'normal' ? `modal--${style[0]}--${props.size}` : `modal--${style[0]}`;
 
   return (
-      <div id='modalView' className={[ 'overlay' , isNegativeHasProps ].join (' ')} style={{ 'visibility' : modalSwitch  }}>
-          <div className={[ variant , `modal--${props.mode}` , 'modal' ].join (' ')}>
-              <button  className='exit' onClick={exitModal}><HighlightOff /></button>  
-              <ModalHeader title ={props.title} mode={props.mode} />
+   <div>
+      {show 
+        ? <div id={`modal-${show}`} className={[ 'overlay' , isNegativeHasProps ].join (' ')} >
+            <div className={[ variant , 'modal' , `modal--${validateMode}` ].join (' ')}>
+              <button  className='exit' onClick={props.close}><HighlightOff /></button> 
+              <ModalHeader title ={props.title} mode={validateMode} />
               <div className='modalBody'>
                   <div className='modalContent'>
                     <props.Body /> 
                   </div>
-                  <ModalButton mode={props.mode} onPositive={props.onPositive} onNegative={props.onNegative} />
+                  <ModalButton mode={validateMode} onPositive={props.onPositive} onNegative={props.onNegative} />
               </div>
-          </div>
-      </div>
+            </div>
+          </div> 
+      : null}
+   </div>
   );
 };
 
 Modal.propTypes = {
-    'visibility' : PropTypes.string.isRequired ,
+    'show' : PropTypes.string.isRequired ,
+    'close' : PropTypes.func.isRequired ,
     'size' : PropTypes.string.isRequired ,
     'mode' : PropTypes.string.isRequired ,
     'title' : PropTypes.func.isRequired ,
@@ -71,7 +71,8 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
-  'visibility' : 'hidden' ,
+  'show' : 'hidden' ,
+  'close' : undefined ,
   'size' : 'medium' ,
   'mode' : 'normal' ,
   'title' : 'No Title' ,
