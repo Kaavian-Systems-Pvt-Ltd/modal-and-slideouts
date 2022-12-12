@@ -1,7 +1,7 @@
 import React , { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import PropTypes from 'prop-types';
-import { Modal } from '../components/index';
+import { Modal } from '../../dist/index';
 
 const stories = storiesOf ('Modal' , module);
 
