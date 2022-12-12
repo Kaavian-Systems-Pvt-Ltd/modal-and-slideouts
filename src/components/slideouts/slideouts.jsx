@@ -8,6 +8,7 @@ import './style.css';
  * Slideouts component
  * @param {object} props
  * @param {string} props.visibility => ('hidden' || 'visible') - defines Slideouts visibility
+ * @param {Function} props.closeSlideOut => method - makes action to close Slideouts
  * @param {string} props.title => text - Slideouts's Title
  * @param {Function} props.Body => JSX component - Slideouts's Body Content
  * @param {string} props.size => ( small || medium || large ) - Slideouts's width size
@@ -35,6 +36,7 @@ export const Slideouts = (props)=> {
         slideIn.classList.add (`slide-in-${props.size}`);
         slideHide.classList.add ('slide-hide');
         outerClick.style.height = '0vh';
+        props.closeSlideOut ();
         return;
     };
 
@@ -57,6 +59,7 @@ export const Slideouts = (props)=> {
 
 Slideouts.propTypes = {
     'visibility' : PropTypes.string.isRequired ,
+    'closeSlideOut' : PropTypes.func.isRequired ,
     'title' : PropTypes.string.isRequired ,
     'Body' : PropTypes.func.isRequired ,
     'size' : PropTypes.string.isRequired
@@ -64,6 +67,7 @@ Slideouts.propTypes = {
 
 Slideouts.defaultProps = {
     'visiblity' : 'hidden' ,
+    'closeSlideOut' : undefined ,
     'title' : 'Slideouts' ,
     'body' : ()=> {
         return(<p>Nothing here</p>);

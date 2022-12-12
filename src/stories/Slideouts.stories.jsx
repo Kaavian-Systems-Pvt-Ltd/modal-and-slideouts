@@ -7,6 +7,10 @@ const stories = storiesOf ('Slideouts' , Slideouts);
 
 stories.add ('Small width' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
+
+    const exitSlideOut  = ()=> {
+        setStatus ('hidden');
+    };
     const Content = ()=> {
         return(
             <p> 
@@ -31,7 +35,7 @@ stories.add ('Small width' , ()=> {
     return(
         <div className='container'>
             <button onClick ={()=> setStatus ('visible')} style={{ 'cursor' : 'pointer' }} >Click to view slideouts</button>
-            <Slideouts visibility={status} title='Small width' Body={Content} />
+            <Slideouts visibility={status} closeSlideOut={exitSlideOut} title='Small width' Body={Content} />
         </div>
     );
 });
