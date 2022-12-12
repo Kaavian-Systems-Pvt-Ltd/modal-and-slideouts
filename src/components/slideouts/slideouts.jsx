@@ -111,7 +111,7 @@ Slideouts.defaultProps = {
     'show' : 'hidden' ,
     'close' : undefined ,
     'title' : 'Slideouts' ,
-    'body' : ()=> {
+    'Body' : ()=> {
         return(<p>Nothing here</p>);
     } ,
     'size' : 'small'
