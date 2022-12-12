@@ -1,9 +1,27 @@
 import React , { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Slideouts } from '../../dist/index';
+import { Slideouts , Modal } from '../../dist/index';
 
 const stories = storiesOf ('Slideouts' , Slideouts);
+
+stories.add ('default' , ()=> {
+    const [ status , setStatus ] = useState ('hidden');
+
+    const clickHandler = ()=> {
+        setStatus ('visible'); 
+    };
+    
+    const exitModal = ()=> {
+        setStatus ('hidden');
+    };
+    return (
+        <div className='container'>
+            <button onClick={clickHandler}> clik to view modal</button>
+            <Modal show={status} mode='alert' close={exitModal}/>
+        </div>
+    );
+}); 
 
 stories.add ('Small width' , ()=> {
     const [ status , setStatus ] = useState ('hidden');
