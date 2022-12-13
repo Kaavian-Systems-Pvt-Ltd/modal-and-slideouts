@@ -12,7 +12,7 @@ import { ModalButton , ModalHeader } from './ModalUtils';
  * @param {Function} props.close => method - makes action to close modal
  * @param {string} props.size => ('small' || 'medium' || 'large') - defines Modal size
  * @param {string} props.mode => ('info' || 'normal' ||'alert--${subMode}' [submode => success,error,warn,security]) - defines modal mode
- * @param {string} props.header => text - modal heading
+ * @param {string} props.title => text - modal heading
  * @param {Function} props.Body => components  - modal body content
  * @param {object} props.onPositive => Button - { label, onClick } two props - modal sucessfull action 
  * @param {string} props.onPositive.label => positive button's label 
