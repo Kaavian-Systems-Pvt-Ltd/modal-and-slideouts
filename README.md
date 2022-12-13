@@ -16,8 +16,8 @@
 > ### Modal
 >> #### Overview
         Modal has 3 variants are info, normal, alert
-        - info
-            -- Simple modal used for just showing information.
+        * info
+            * Simple modal used for just showing information.
         - normal 
             -- Used for showing information with user action.
             -- Normally, have two button. onPositiveis required.
@@ -90,4 +90,4 @@
     }
 
 ## Demo 
-    Click here : https://638f63c9f57e8fc27f60d14e-abyzkmjncp.chromatic.com/?path=/story/slideouts--default
+    Click here : <a 
