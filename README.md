@@ -89,4 +89,4 @@
     }
 
 ## Demo 
-    Click here : https://www.chromatic.com/build?appId=638f63c9f57e8fc27f60d14e&number=9
+    Click here : https://638f63c9f57e8fc27f60d14e-abyzkmjncp.chromatic.com/?path=/story/slideouts--default
