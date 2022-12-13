@@ -17,7 +17,7 @@ stories.add ('default' , ()=> {
     };
     return (
         <div className='container'>
-            <button onClick={clickHandler}> clik to view modal</button>
+            <button onClick={clickHandler}> clik to view Slideouts</button>
             <Slideouts show={status} close={exitModal}/>
         </div>
     );
@@ -52,7 +52,7 @@ stories.add ('Small width' , ()=> {
     };
     return(
         <div className='container'>
-            <button onClick ={()=> setStatus ('visible')} style={{ 'cursor' : 'pointer' }} >Click to view slideouts</button>
+            <button onClick ={()=> setStatus ('visible')} style={{ 'cursor' : 'pointer' }} >Click to view Slideouts</button>
             <Slideouts show={status} close={exitSlideOut} title='Small width' Body={Content} />
         </div>
     );
@@ -74,7 +74,7 @@ stories.add ('Medium width' , ()=> {
     };
     return(
         <div className='container'>
-            <button onClick ={()=> setStatus ('visible')} >Click to view slideouts</button>
+            <button onClick ={()=> setStatus ('visible')} >Click to view Slideouts</button>
             <Slideouts show={status} title='Medium width' Body={Content} size='medium' close={exitSlideOut} />
         </div>
     );
@@ -97,7 +97,7 @@ stories.add ('Large width' , ()=> {
     };
     return(
         <div className='container'>
-            <button onClick ={()=> setStatus ('visible')} >Click to view slideouts</button>
+            <button onClick ={()=> setStatus ('visible')} >Click to view Slideouts</button>
             <Slideouts show={status} close={exitSlideOut} title='Large width' Body={Content} size='large' />
         </div>
     );
