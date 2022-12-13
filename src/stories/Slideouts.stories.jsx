@@ -1,7 +1,7 @@
 import React , { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Slideouts , Modal } from '../../dist/index';
+import { Slideouts } from '../../dist/index';
 
 const stories = storiesOf ('Slideouts' , Slideouts);
 
@@ -18,7 +18,7 @@ stories.add ('default' , ()=> {
     return (
         <div className='container'>
             <button onClick={clickHandler}> clik to view modal</button>
-            <Modal show={status} mode='alert' close={exitModal}/>
+            <Slideouts show={status} close={exitModal}/>
         </div>
     );
 }); 

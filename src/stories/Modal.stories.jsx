@@ -4,32 +4,6 @@ import PropTypes from 'prop-types';
 import { Modal } from '../../dist/index';
 
 const stories = storiesOf ('Modal' , module);
-
-const ModalSkeleton = ({ modalProbs , clickHandler , msg })=> {
-    
-    const Content = ()=> {
-        return(
-            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
-                adipisicing elit. Nisi, possimus sapiente facilis 
-            </p>
-        );
-    };
-
-    return(
-            <div className='container'>
-                    <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
-                    <h2>{msg}</h2>
-                    <Modal Body={Content} {...modalProbs}/>
-            </div>
-    );
-};
-
-ModalSkeleton.propTypes = {
-    'modalProbs' : PropTypes.object.isRequired , 
-    'clickHandler' : PropTypes.func.isRequired , 
-    'msg' : PropTypes.string.isRequired
-};
-
 // Use Cases
 
 stories.add ('default' , ()=> {
@@ -86,7 +60,9 @@ stories.add ('Info Modal' , ()=> {
     };
     return(
             <div className='container'>
-                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+                <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
+                <h2>{msg}</h2>
+                <Modal {...modalProbs}/>
             </div>
     );
 });
@@ -122,7 +98,6 @@ stories.add ('Alert Success' , ()=> {
         'show' : status ,
         'close' : exitModal ,
         'mode' : 'alert--success' ,
-        'Body' : Content , 
         'onPositive' : {
             'label' : 'OK' ,
             'onClick' : onPositive
@@ -130,7 +105,9 @@ stories.add ('Alert Success' , ()=> {
     };
     return(
             <div className='container'>
-                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+                <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
+                <h2>{msg}</h2>
+                <Modal Body={Content} {...modalProbs}/>
             </div>
     );
 });
@@ -149,6 +126,14 @@ stories.add ('Alert Error' , ()=> {
         setStatus ('hidden');
     };
 
+    const Content = ()=> {
+        return(
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
+                adipisicing elit. Nisi, possimus sapiente facilis 
+            </p>
+        );
+    };
+
     const modalProbs = {
         'show' : status ,
         'mode' : 'alert--error' ,
@@ -159,7 +144,9 @@ stories.add ('Alert Error' , ()=> {
     };
     return(
             <div className='container'>
-                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+                <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
+                <h2>{msg}</h2>
+                <Modal Body={Content} {...modalProbs}/>
             </div>
     );
 });
@@ -181,6 +168,14 @@ stories.add ('Alert Warning' , ()=> {
         setStatus ('hidden');
     };
 
+    const Content = ()=> {
+        return(
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
+                adipisicing elit. Nisi, possimus sapiente facilis 
+            </p>
+        );
+    };
+
     const modalProbs = {
         'show' : status ,
         'close' : exitModal ,
@@ -192,7 +187,9 @@ stories.add ('Alert Warning' , ()=> {
     };
     return(
             <div className='container'>
-                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+                <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
+                <h2>{msg}</h2>
+                <Modal Body={Content} {...modalProbs}/>
             </div>
     );
 });
@@ -214,6 +211,14 @@ stories.add ('Alert Security' , ()=> {
         setStatus ('hidden');
     };
 
+    const Content = ()=> {
+        return(
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
+                adipisicing elit. Nisi, possimus sapiente facilis 
+            </p>
+        );
+    };
+
     const modalProbs = {
         'show' : status ,
         'close' : exitModal ,
@@ -230,7 +235,9 @@ stories.add ('Alert Security' , ()=> {
     };
     return(
             <div className='container'>
-                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+                <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
+                <h2>{msg}</h2>
+                <Modal Body={Content} {...modalProbs}/>
             </div>
     );
 });
@@ -253,6 +260,14 @@ stories.add ('Normal small' , ()=> {
         setStatus ('hidden');
     };
 
+    const Content = ()=> {
+        return(
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
+                adipisicing elit. Nisi, possimus sapiente facilis 
+            </p>
+        );
+    };
+
     const modalProbs = {
         'show' : status ,
         'close' : exitModal ,
@@ -270,7 +285,9 @@ stories.add ('Normal small' , ()=> {
     };
     return(
             <div className='container'>
-                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+                <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
+                <h2>{msg}</h2>
+                <Modal Body={Content} {...modalProbs}/>
             </div>
     );
 });
@@ -322,7 +339,9 @@ stories.add ('Normal medium' , ()=> {
     };
     return(
             <div className='container'>
-                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+                <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
+                <h2>{msg}</h2>
+                <Modal {...modalProbs}/>
             </div>
     );
 });
@@ -379,7 +398,9 @@ stories.add ('Normal Large' , ()=> {
     };
     return(
             <div className='container'>
-                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+                <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
+                <h2>{msg}</h2>
+                <Modal {...modalProbs}/>
             </div>
     );
 });
@@ -402,6 +423,14 @@ stories.add ('Normal small single Button' , ()=> {
         setStatus ('hidden');
     };
 
+    const Content = ()=> {
+        return(
+            <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, possimus sapiente facilis
+                adipisicing elit. Nisi, possimus sapiente facilis 
+            </p>
+        );
+    };
+
     const modalProbs = {
         'show' : status ,
         'close' : exitModal ,
@@ -415,7 +444,9 @@ stories.add ('Normal small single Button' , ()=> {
     };
     return(
             <div className='container'>
-                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+                <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
+                <h2>{msg}</h2>
+                <Modal Body={Content} {...modalProbs}/>
             </div>
     );
 });
@@ -463,7 +494,9 @@ stories.add ('Normal medium single Button' , ()=> {
     };
     return(
             <div className='container'>
-                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+                <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
+                <h2>{msg}</h2>
+                <Modal {...modalProbs}/>
             </div>
     );
 });
@@ -516,7 +549,9 @@ stories.add ('Normal Large Single button ' , ()=> {
     };
     return(
             <div className='container'>
-                <ModalSkeleton modalProbs ={modalProbs} status={status} clickHandler={clickHandler} msg={msg} />
+                <button onClick={clickHandler}> clik to view modal {modalProbs.show}</button>
+                <h2>{msg}</h2>
+                <Modal {...modalProbs}/>
             </div>
     );
 });
