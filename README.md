@@ -16,8 +16,8 @@
 > ### Modal
 >> #### Overview
         Modal has 3 variants are info, normal, alert
-        * info
-            * Simple modal used for just showing information.
+        - info
+            -- Simple modal used for just showing information.
         - normal 
             -- Used for showing information with user action.
             -- Normally, have two button. onPositiveis required.
