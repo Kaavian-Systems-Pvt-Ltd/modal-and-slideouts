@@ -1,7 +1,7 @@
 {
   "name": "@kaavian-sys/modal-and-slideouts",
   "version": "1.0.0",
-  "description": "",
+  "description": "One configuration that will serve as standard for projects.",
   "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +15,9 @@
     "url": "https://github.com/Kaavian-Systems-Pvt-Ltd/modal-and-slideouts.git"
   },
   "author": {
-    "name": "Mohammed Samsuthin"
+    "name": "Mohammed Samsuthin",
+    "email" : "mohammedsamsuthin.k@kaaviansys.com",
+    "url" : "https://github.com/mhdSamsu"
   },
   "license": "ISC",
   "bugs": {
