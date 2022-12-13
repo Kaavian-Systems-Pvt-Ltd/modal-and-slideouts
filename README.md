@@ -2,8 +2,8 @@
 
 ## Note
     You have to install python in your local to use this package.
-    Or Please note that the official [Node.js for Windows installer](https://nodejs.org/en/download) 
-    can now automatically install the required tools. 
+    Or 
+    Please note that the official [Node.js for Windows installer](https://nodejs.org/en/download) can now automatically install the required tools. 
 ##  Installation
 >#### To install
     > npm i --save-dev https://github.com/Kaavian-Systems-Pvt-Ltd/modal-and-slideouts.git
